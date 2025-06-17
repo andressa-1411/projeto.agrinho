@@ -1,242 +1,122 @@
-Com certeza! Para criar um código de estilo (CSS) para um site, primeiro precisamos definir onde ele será aplicado. O CSS é a linguagem que "decora" o seu HTML, dizendo como os elementos devem se parecer.
-
-Existem três formas principais de aplicar CSS:
-
-CSS Interno: Direto no arquivo HTML, dentro da tag <style> no <head>. Ótimo para estilos específicos de uma única página ou para testes rápidos.
-CSS Inline: Direto na tag HTML (ex: <p style="color: blue;">). Não é recomendado para sites maiores, pois dificulta a manutenção e a reutilização do código.
-CSS Externo (Recomendado): Em um arquivo .css separado, que é vinculado ao HTML. Essa é a melhor prática para a maioria dos sites, pois organiza o código, facilita a manutenção e o carregamento em várias páginas.
-Opção 1: CSS Interno (Exemplo Rápido)
-Se você quer aplicar o estilo diretamente no seu arquivo HTML, coloque este código dentro da tag <head>:
-
-HTML
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site com Estilo Interno</title>
-    <style>
-        /* ESTILOS CSS COMEÇAM AQUI */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais agradável */
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #e9eef2; /* Um azul bem clarinho */
-            color: #333; /* Texto escuro */
-        }
-
-        header {
-            background-color: #2c3e50; /* Azul escuro */
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .container {
-            width: 85%;
-            max-width: 1200px; /* Limita a largura máxima */
-            margin: 20px auto; /* Centraliza e adiciona margem */
-            padding: 0 20px;
-            overflow: hidden;
-        }
-
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 10px; /* Cantos arredondados */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
-        }
-
-        h2 {
-            color: #34495e; /* Azul médio */
-            border-bottom: 2px solid #3498db; /* Linha azul embaixo do título */
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style-type: none; /* Remove bolinhas */
-            padding: 0;
-        }
-
-        ul li {
-            background-color: #f0f4f8; /* Fundo cinza claro para itens da lista */
-            margin-bottom: 8px;
-            padding: 10px 15px;
-            border-left: 5px solid #3498db; /* Linha azul na esquerda */
-            border-radius: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #2c3e50;
-            color: white;
-            margin-top: 40px;
-        }
-        /* ESTILOS CSS TERMINAM AQUI */
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Título do Meu Site</h1>
-        <p>Um subtítulo legal para o seu site</p>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>Sobre Nós</h2>
-            <p>Bem-vindo ao nosso site! Aqui você encontrará informações úteis e interessantes sobre diversos tópicos.</p>
-            <p>Nossa missão é compartilhar conhecimento de forma clara e acessível.</p>
-        </section>
-
-        <section>
-            <h2>Nossos Serviços</h2>
-            <ul>
-                <li>Desenvolvimento Web</li>
-                <li>Consultoria de TI</li>
-                <li>Design Gráfico</li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
-Opção 2: CSS Externo (Melhor Prática)
-Esta é a forma mais recomendada, especialmente para sites com mais de uma página.
-
-Passo 1: Crie o arquivo HTML
-Crie um arquivo chamado index.html (ou qualquer outro nome) com o seguinte conteúdo:
-
-HTML
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site com Estilo Externo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Título do Meu Site</h1>
-        <p>Um subtítulo legal para o seu site</p>
-    </header>
-
-    <div class="container">
-        <section>
-            <h2>Sobre Nós</h2>
-            <p>Bem-vindo ao nosso site! Aqui você encontrará informações úteis e interessantes sobre diversos tópicos.</p>
-            <p>Nossa missão é compartilhar conhecimento de forma clara e acessível.</p>
-        </section>
-
-        <section>
-            <h2>Nossos Serviços</h2>
-            <ul>
-                <li>Desenvolvimento Web</li>
-                <li>Consultoria de TI</li>
-                <li>Design Gráfico</li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
-Repare na linha <link rel="stylesheet" href="style.css">. Ela "linka" o seu HTML ao arquivo de estilo que criaremos.
-
-Passo 2: Crie o arquivo CSS
-No mesmo diretório onde você salvou o index.html, crie um novo arquivo e salve-o como style.css. Cole o seguinte código dentro dele:
-
-CSS
-
-/* ESTILOS CSS COMEÇAM AQUI */
+/* Estilos Gerais do Corpo */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: 'Open Sans', Arial, sans-serif; /* Fonte moderna e legível */
+    line-height: 1.7; /* Espaçamento entre linhas para melhor leitura */
     margin: 0;
     padding: 0;
-    background-color: #e9eef2;
-    color: #333;
+    background-color: #f8f8f8; /* Fundo cinza bem claro */
+    color: #333; /* Cor do texto principal */
 }
 
+/* Cabeçalho do Site */
 header {
-    background-color: #2c3e50;
+    background-color: #4CAF50; /* Verde vibrante do milho */
     color: white;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0; /* Padding maior para o cabeçalho */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais destacada */
+    margin-bottom: 30px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3em; /* Título maior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra no texto do título */
 }
 
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Container Principal para Centralizar o Conteúdo */
 .container {
-    width: 85%;
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 90%; /* Mais largura para o conteúdo */
+    max-width: 1100px; /* Limite máximo */
+    margin: 0 auto; /* Centraliza o container */
     padding: 0 20px;
-    overflow: hidden;
+    overflow: hidden; /* Garante que elementos flutuantes não quebrem o layout */
 }
 
+/* Estilo das Seções de Conteúdo */
 section {
     background-color: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 35px; /* Mais padding interno */
+    margin-bottom: 30px;
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #eee; /* Borda sutil */
 }
 
 h2 {
-    color: #34495e;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    color: #2e8b57; /* Verde escuro */
+    font-size: 2em;
+    border-bottom: 3px solid #7cb342; /* Linha verde mais grossa */
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 p {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    text-align: justify; /* Texto justificado para parágrafos */
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+/* Galeria de Imagens */
+.image-gallery {
+    display: grid; /* Usa grid para organizar as imagens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas flexíveis */
+    gap: 20px; /* Espaçamento entre as imagens */
+    margin-top: 30px;
+    justify-content: center; /* Centraliza as imagens na grid */
 }
 
-ul li {
-    background-color: #f0f4f8;
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-left: 5px solid #3498db;
-    border-radius: 5px;
+.image-gallery img {
+    width: 100%; /* Imagem ocupa 100% da coluna */
+    height: 220px; /* Altura fixa para consistência */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço */
+    border-radius: 8px; /* Cantos arredondados nas imagens */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra nas imagens */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave ao passar o mouse */
 }
 
+.image-gallery img:hover {
+    transform: scale(1.03); /* Leve aumento ao passar o mouse */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25); /* Sombra mais forte no hover */
+}
+
+/* Rodapé do Site */
 footer {
     text-align: center;
     padding: 25px;
-    background-color: #2c3e50;
+    background-color: #333; /* Fundo escuro */
     color: white;
-    margin-top: 40px;
+    margin-top: 50px; /* Mais margem no topo do rodapé */
+    font-size: 0.9em;
 }
-/* ESTILOS CSS TERMINAM AQUI */
+
+/* Responsividade Básica (para telas menores) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .container {
+        width: 95%; /* Aumenta a largura em telas menores */
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+}
